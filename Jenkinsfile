@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/ajilraju/spring-boot-jsp.git'
+                git branch: 'main', changelog: false, credentialsId: 'github', poll: false, url: 'https://github.com/ashnanazar/spring-boot-jsp.git'
             }
         }
         stage('Test') {
@@ -41,7 +41,7 @@ pipeline {
         stage('Deploying Artifcats') {
             steps {
                 sh '''
-                    ssh -o StrictHostKeyChecking=no deployer@3.142.145.171 "sudo ~/deploy.sh ${APP_VERSION}"
+                    ssh -o StrictHostKeyChecking=no deployer@34.100.246.173 "sudo ~/deploy.sh ${APP_VERSION}"
                 '''
             }
         }
